@@ -1,6 +1,5 @@
-install: install-bash install-virtualenvwrapper install-pythonrc \
-		 install-subl install-bin install-vcprompt install-git install-hg \
-		 install-fish
+install: install-bash \
+		 install-bin install-vcprompt install-git install-hg
 
 install-vcprompt:
 	@rm -rf /tmp/vcprompt
@@ -26,26 +25,26 @@ install-bash:
 	ln -fs ~/.bash_profile ~/.bashrc
 	@echo "Old .bash_profile saved as .bash_profile.old"
 
-install-virtualenvwrapper:
-	mkdir -p ~/.virtualenvs/
-	ln -fs `pwd`/virtualenvwrapper/* ~/.virtualenvs/
+# install-virtualenvwrapper:
+# 	mkdir -p ~/.virtualenvs/
+# 	ln -fs `pwd`/virtualenvwrapper/* ~/.virtualenvs/
 
-install-pythonrc:
-	ln -fs `pwd`/python/pythonrc.py ~/.pythonrc.py
+# install-pythonrc:
+# 	ln -fs `pwd`/python/pythonrc.py ~/.pythonrc.py
 
-install-subl:
-ifeq ($(shell uname),Darwin)
-	ln -fs `pwd`/sublimetext3/Packages/User/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
-	ln -fs "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
-endif
+# install-subl:
+# ifeq ($(shell uname),Darwin)
+# 	ln -fs `pwd`/sublimetext3/Packages/User/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
+# 	ln -fs "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+# endif
 
-install-fish:
-	mkdir -p ~/.config/fish/
-	ln -fs `pwd`/fish/config.fish ~/.config/fish/config.fish
+# install-fish:
+# 	mkdir -p ~/.config/fish/
+# 	ln -fs `pwd`/fish/config.fish ~/.config/fish/config.fish
 
-install-zsh:
-	ln -fs `pwd`/zsh/zshrc ~/.zshrc
-	# TODO(dcramer): there must be a better way to do specify my own theme?
-	[ -e ~/.oh-my-zsh ] && ln -fs `pwd`/zsh/themes/* ~/.oh-my-zsh/themes/
-	# mkdir -p ~/.zsh-extras/
-	# [ ! -e ~/.zsh-extras/zsh-autosuggestions ] && git clone git://github.com/tarruda/zsh-autosuggestions ~/.zsh-extras/zsh-autosuggestions
+# install-zsh:
+# 	ln -fs `pwd`/zsh/zshrc ~/.zshrc
+# 	# TODO(dcramer): there must be a better way to do specify my own theme?
+# 	[ -e ~/.oh-my-zsh ] && ln -fs `pwd`/zsh/themes/* ~/.oh-my-zsh/themes/
+# 	# mkdir -p ~/.zsh-extras/
+# 	# [ ! -e ~/.zsh-extras/zsh-autosuggestions ] && git clone git://github.com/tarruda/zsh-autosuggestions ~/.zsh-extras/zsh-autosuggestions
